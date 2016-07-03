@@ -1,0 +1,17 @@
+{
+    "variable": {
+        "image": {
+            "default": "Standard_CentOS_7.2_latest"
+        }
+    },
+    "variable": {
+        "flavor": {
+            "default": "m1.medium"
+        }
+    },
+    "variable": {
+        "key_pair": {
+            "default": "hadoop"
+        }
+    }
+}
