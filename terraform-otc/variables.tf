@@ -15,7 +15,7 @@ variable "flavor_id" {
 }
 
 variable "mykeypair_name" {
-  default = "hadoop"
+  default = "terraform"
 }
 
 
