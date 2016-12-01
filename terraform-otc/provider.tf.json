@@ -1,10 +1,10 @@
 {
     "provider": {
         "openstack": {
-            "user_name": "xxxxxxxx OTC00000000001000000xxx",
+            "user_name": "14612545 OTC00000000001000000323",
             "tenant_name": "eu-de",
-            "domain_name": "OTC00000000001000000xxx",            
-            "password": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "domain_name": "OTC00000000001000000323",            
+            "password": "xxxxxxxxxxxxxxxxx",
             "auth_url": "https://iam.eu-de.otc.t-systems.com:443/v3"
         }
     }
