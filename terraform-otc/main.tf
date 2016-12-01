@@ -82,5 +82,5 @@ resource "openstack_compute_instance_v2" "terraform" {
     volume_id = "${openstack_blockstorage_volume_v2.terraform.id}"
   }
 
-  user_data = "${file("/data/cloud-config.yml")}"
+  user_data = "${file("cloud-config.yml")}"
 }
