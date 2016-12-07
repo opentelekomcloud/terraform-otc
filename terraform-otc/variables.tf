@@ -3,11 +3,11 @@ variable "image_id" {
 }
 
 variable "myinstance_name" {
-  default = "terraformcern"
+  default = "terravm"
 }
 
 variable "instance_count" {
-  default = "1"
+  default = "2"
 }
 
 variable "flavor_id" {
@@ -15,7 +15,7 @@ variable "flavor_id" {
 }
 
 variable "mykeypair_name" {
-  default = "hadoop"
+  default = "testssh"
 }
 
 
@@ -27,6 +27,5 @@ variable "external_gateway" {
   default = "0a2228f2-7f8a-45f1-8e09-9039e1d09975"
 }
 
-variable "pool" {
-  default = "public"
-}
+variable "eib_pool" {
+  default = "admin_external_net"
