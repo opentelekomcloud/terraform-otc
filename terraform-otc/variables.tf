@@ -29,3 +29,16 @@ variable "external_gateway" {
 
 variable "eib_pool" {
   default = "admin_external_net"
+}
+  
+variable "obs_filename" {
+  default = "~/sample.txt"
+}
+
+variable "aws_access_key" {
+  default = "XXXXXXXXXXXXXXXXXXXX"
+}
+
+variable "aws_secret_key" {
+  default = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
