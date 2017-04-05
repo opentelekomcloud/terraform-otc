@@ -53,10 +53,10 @@ resource "openstack_compute_secgroup_v2" "terra_sec1" {
   }
 }
 
-resource "openstack_compute_floatingip_v2" "eib" {
+resource "openstack_compute_floatingip_v2" "eip" {
   depends_on = ["openstack_networking_router_interface_v2.router_int1"]
   count      = "${var.instance_count}"
-  pool       = "${var.eib_pool}"
+  pool       = "${var.eip_pool}"
 }
 
 
@@ -75,7 +75,7 @@ resource "openstack_compute_instance_v2" "terraform" {
   flavor_id       = "${var.flavor_id}"
   key_pair        = "terraform_key"
   security_groups = ["${openstack_compute_secgroup_v2.terra_sec1.name}"]
-  floating_ip     = "${element(openstack_compute_floatingip_v2.eib.*.address, count.index)}"
+  floating_ip     = "${element(openstack_compute_floatingip_v2.eip.*.address, count.index)}"
 
 
   network {
