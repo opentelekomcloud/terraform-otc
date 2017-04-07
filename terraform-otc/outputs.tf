@@ -1,3 +1,3 @@
 output "address" {
-  value = "THIS IS MANUAL ACTION"
+  value = ["${openstack_compute_floatingip_v2.eip.*.address}"]
 }
