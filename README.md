@@ -13,27 +13,26 @@ Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) doc
 
 [How Do I Modify My Credential Information?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606214.html)
 
+[How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
+
 ![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
 
-[How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
+
 
 Step by step setup of important values:
 ```
 provider "openstack" {
 
-user_name   = "xxxxxx"   <- User Name from My Credential
-
-password    = "yyyyyy" <- Login password
-
-domain_id   = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" <- Domain ID from My Credential
+    user_name   = "xxxxxx"   <- User Name from My Credential
+    password    = "yyyyyy" <- Login password
+    domain_id   = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" <- Domain ID from My Credential
 
 ...
 
 provider "aws" {
 
-access_key = "${var.aws_access_key}" <- Access Key Id of a previously created Access Key
-
-secret_key = "${var.aws_secret_key}" <- Secret Access Key of a previously created Access Key
+    access_key = "${var.aws_access_key}" <- Access Key Id of a previously created Access Key
+    secret_key = "${var.aws_secret_key}" <- Secret Access Key of a previously created Access Key
 ```
 
 Default value could be set in variables.tf: 
