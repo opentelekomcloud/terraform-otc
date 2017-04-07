@@ -9,9 +9,9 @@ Below Open Telekom Cloud services are currently supported by Terraform:
 ## provider.tf ##
 Authentication configurations file example for OpenStack and AWS (OBS) providers.
 
-Please refer the following [OTC Helpcenter](https://docs.otctest.t-systems.com/) documentation article to find authentication details: 
+Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation article to find authentication details: 
 
-![My Credential](https://docs.otctest.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg "My Credential")
+![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
 
 [How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
 
