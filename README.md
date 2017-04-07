@@ -11,6 +11,8 @@ Authentication configurations file example for OpenStack and AWS (OBS) providers
 
 Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation article to find authentication details: 
 
+[How Do I Modify My Credential Information?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606214.html)
+
 ![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
 
 [How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
