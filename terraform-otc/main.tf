@@ -71,7 +71,8 @@ resource "openstack_compute_instance_v2" "terraform" {
  depends_on       = ["openstack_networking_router_interface_v2.router_int1"]
   count           = "${var.instance_count}"
   name            = "${var.myinstance_name}-${format("%04d", count.index+1)}"
-  image_id        = "${var.image_id}"
+  #image_id        = "${var.image_id}"
+  image_name        = "${var.image_name}"
   flavor_id       = "${var.flavor_id}"
   key_pair        = "terraform_key"
   security_groups = ["${openstack_compute_secgroup_v2.terra_sec1.name}"]
@@ -90,18 +91,18 @@ resource "openstack_compute_instance_v2" "terraform" {
   user_data = "${file("/data/cloud-config.yml")}"
 }
 
-resource "aws_s3_bucket" "mybucket" {
-  bucket = "terra-test"
-  acl    = "public-read"
-  versioning {
-    enabled = true
-  }
-  force_destroy = true
-}
-
-resource "aws_s3_bucket_object" "object" {
-  bucket = "${aws_s3_bucket.mybucket.bucket}"
-  key    = "testfile"
-  source = "${var.obs_filename}"
-  acl    = "public-read"
-}
+#resource "aws_s3_bucket" "mybucket" {
+#  bucket = "terra-test"
+#  acl    = "public-read"
+#  versioning {
+#    enabled = true
+#  }
+#  force_destroy = true
+#}
+#
+#resource "aws_s3_bucket_object" "object" {
+#  bucket = "${aws_s3_bucket.mybucket.bucket}"
+#  key    = "testfile"
+#  source = "${var.obs_filename}"
+#  acl    = "public-read"
+#}
