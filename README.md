@@ -1,64 +1,56 @@
-## Terraform configurations file examples for Open Telekom Cloud ##
-Below Open Telekom Cloud services are currently supported by Terraform:
-- IAM - Identity and Access Management
-- ECS - Elastic Cloud Server
-- VPC - Virtual Private Cloud
-- EVS - Elastic Volume Service
-- OBS - Object Storage Service, through AWS (S3) provider
+# Terraform examples for Open Telekom Cloud
 
-## provider.tf ##
-Authentication configurations file example for OpenStack and AWS (OBS) providers.
+## Compatibility List
 
-Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation article to find authentication details: 
+| Terraform Resource | Status      |
+| ------------------ | ----------- |
+| Data Sources       | Partial     |
+| Block Storage      | Working     |
+| Compute            | Working     |
+| DNS                | Working     |
+| Images             | Working     |
+| Networking         | Working     |
+| Load Balancer      | Not working |
+| Firewall           | Not working |
 
-[How Do I Modify My Credential Information?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606214.html)
+## Description
 
-[How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
+There are different examples of terraform scripts, each with a different purpose:
 
-![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
+**minimal** 
+
+A minimal Terraform example with just the components to get a virtual machine running and connect to it with a public ip.
+
+**dns**
+
+A bit more complex example, inlcuding handling of DNS and additional storage volumes
+
+**objectstorage**
+
+An example on how to use the object storage that is included in OTC.
+
+**full**
+
+A complete example, showing the full power of terraform. Components can be enabled and disabled via configuration file.
+
+## Quick Start
+
+1. Install [Terraform](https://www.terraform.io)
+2. Clone this repository via `git clone https://github.com/OpenTelekomCloud/terraform-otc.git`
+3. Switch to terraform directory `cd terraform-otc/minimal`
+4. Initialize Terraform provider via `terraform init`
+5. Insert your login information into `parameter.tvars`
+6. Check if everything looks good with `terraform plan -var-file=parameter.tvars`
+7. Apply the changes via `terraform apply -var-file=parameter.tvars`
+
+## Authentication
 
 
 
-Step by step setup of important values:
-```
-provider "openstack" {
+## Known Issues
 
-    user_name   = "xxxxxx"   <- User Name from My Credential
-    password    = "yyyyyy" <- Login password
-    domain_id   = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" <- Domain ID from My Credential
+### Loadbalancing
 
-...
+### FloatingIP Association
 
-provider "aws" {
-
-    access_key = "${var.aws_access_key}" <- Access Key Id of a previously created Access Key
-    secret_key = "${var.aws_secret_key}" <- Secret Access Key of a previously created Access Key
-```
-
-Default value could be set in variables.tf: 
-
-variable "aws_access_key"
-
-variable "aws_secret_key" 
-
-  
-## main.tf ##
-Infrastructure-as-Code file example describing below infrastructure:
-
-*	VPC network
-    * Subnet 
-    * Router
-*	Security group
-*	2 instances of ECS
-    *	Based on specified image
-    *	additional EVS volumes
-    *	Specified server resources
-    *	Dynamically assigned EIPs
-* OBS bucket
-    * A file uploaded to the bucket
-
-## variables.ft ##
-Supporting variables
-
-## output.ft ##
-Prints EIPs of ECS instances that have been created.
+### Network Datasource
