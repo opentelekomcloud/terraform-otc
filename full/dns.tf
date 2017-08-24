@@ -1,9 +1,8 @@
 resource "openstack_dns_zone_v2" "dnszone" {
   count = "${var.dnszone != "" ? 1 : 0}"
   name  = "${var.dnszone}."
-  email = "email@${var.dnszone}."
+  email = "email@${var.dnszone}"
   ttl   = 6000
-  type  = "PRIMARY"
 }
 
 resource "openstack_dns_recordset_v2" "recordset" {
