@@ -27,12 +27,6 @@ variable "project" {
   default = "terraform"
 }
 
-variable "dnszone" {}
-
-variable "dnsname" {
-  default = "webserver"
-}
-
 variable "subnet_cidr" {
   default = "192.168.10.0/24"
 }
@@ -41,13 +35,22 @@ variable "ssh_pub_key" {
   default = "~/.ssh/id_rsa.pub"
 }
 
+### DNS Settings
+variable "dnszone" {
+  default = ""
+}
+
+variable "dnsname" {
+  default = "webserver"
+}
+
 ### VM (Instance) Settings
 variable "instance_count" {
   default = "1"
 }
 
 variable "disk_size_gb" {
-  default = "50"
+  default = "0"
 }
 
 variable "flavor_name" {

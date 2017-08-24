@@ -16,7 +16,7 @@ resource "openstack_compute_instance_v2" "webserver" {
 }
 
 resource "openstack_compute_volume_attach_v2" "volume_attach" {
-  count       = "${var.instance_count}"
+  count       = "${var.disk_size_gb > 0 ? var.instance_count : 0}"
   instance_id = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
   volume_id   = "${element(openstack_blockstorage_volume_v2.volume.*.id, count.index)}"
 }
