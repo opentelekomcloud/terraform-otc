@@ -67,11 +67,11 @@ Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) doc
 
 ### Loadbalancing
 
-Loadbalancing via the LBaaSv2 service is currently not working with Terraform. OTC doesn't allow the user to the the `connection_limit` parameter for the `listener` object. For some reason Terraform always passes this parameter, even if the user doesn't specify it. Since this is an optional parameter, it should be changed in Terraform. There is a github issue for tracking this [here]().
+Loadbalancing via the LBaaSv2 service is currently not working with Terraform. OTC doesn't allow the user to the the `connection_limit` parameter for the `listener` object. For some reason Terraform always passes this parameter, even if the user doesn't specify it. Since this is an optional parameter, it should be changed in Terraform. There is a github issue for tracking this [here](https://github.com/terraform-providers/terraform-provider-openstack/issues/87).
 
 ### Floating IP Association
 
-Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is caused by Terraform using a deprecated OpenStack API (the Neutron API should be used, but an older Nova API is used instead). OTC doesn't list the external network in the instance information, so Terraform will try to attach the floating IP again, resulting in an error. There is an ongoing discussion on how to fix this. Also see the [corresponding github issue]().
+Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is caused by Terraform using a deprecated OpenStack API (the Neutron API should be used, but an older Nova API is used instead). OTC doesn't list the external network in the instance information, so Terraform will try to attach the floating IP again, resulting in an error. There is an ongoing discussion on how to fix this. Also see the [corresponding github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/88).
 
 ### Network Datasource
 
