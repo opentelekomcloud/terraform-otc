@@ -1,8 +1,7 @@
-data "template_file" "init" {
-  template = "${file("${path.module}/templates/apache.tpl")}"
+data "template_file" "webserver" {
+  template = "${file("${path.module}/templates/cloudinit.tpl")}"
 
   vars {
-    internal_ip = ""
-    external_ip = ""
+    package = "httpd"
   }
 }
