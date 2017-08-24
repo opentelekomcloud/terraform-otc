@@ -18,9 +18,23 @@ variable "external_network" {
   default = "admin_external_net"
 }
 
+variable "external_network_id" {
+  default = "0a2228f2-7f8a-45f1-8e09-9039e1d09975"
+}
+
 ### Project Settings
 variable "project" {
   default = "terraform"
+}
+
+variable "dnszone" {}
+
+variable "dnsname" {
+  default = "webserver"
+}
+
+variable "subnet_cidr" {
+  default = "192.168.10.0/24"
 }
 
 variable "ssh_pub_key" {
