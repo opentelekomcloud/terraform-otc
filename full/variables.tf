@@ -35,6 +35,10 @@ variable "ssh_pub_key" {
   default = "~/.ssh/id_rsa.pub"
 }
 
+variable "ssh_priv_key" {
+  default = "~/.ssh/id_rsa"
+}
+
 ### DNS Settings
 variable "dnszone" {
   default = ""
