@@ -5,3 +5,4 @@ packages:
 runcmd:
  - systemctl start ${package}
  - systemctl enable ${package}
+
