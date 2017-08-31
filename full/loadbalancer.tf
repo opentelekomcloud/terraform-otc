@@ -5,11 +5,12 @@ resource "openstack_lb_loadbalancer_v2" "loadbalancer" {
 }
 
 resource "openstack_lb_listener_v2" "listener" {
-  name            = "${var.project}-listener"
-  protocol        = "HTTP"
-  protocol_port   = 80
-  loadbalancer_id = "${openstack_lb_loadbalancer_v2.loadbalancer.id}"
-  admin_state_up  = "true"
+  name             = "${var.project}-listener"
+  protocol         = "HTTP"
+  protocol_port    = 80
+  loadbalancer_id  = "${openstack_lb_loadbalancer_v2.loadbalancer.id}"
+  admin_state_up   = "true"
+  connection_limit = "-1"
 }
 
 resource "openstack_lb_pool_v2" "pool" {

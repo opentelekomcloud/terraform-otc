@@ -10,7 +10,7 @@
 | DNS                | Working     |
 | Images             | Working     |
 | Networking         | Working     |
-| Load Balancer      | Not working |
+| Load Balancer      | Partial     |
 | Firewall           | Not working |
 
 ## Description
