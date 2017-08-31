@@ -6,7 +6,6 @@ resource "openstack_compute_instance_v2" "webserver" {
   key_pair        = "${openstack_compute_keypair_v2.keypair.name}"
   user_data       = "${data.template_file.webserver.rendered}"
   security_groups = [
-    "default",
     "${openstack_compute_secgroup_v2.secgrp_web.name}"
   ]
 
@@ -23,18 +22,7 @@ resource "openstack_compute_instance_v2" "webserver" {
 #  }
 
   network {
-    #uuid           = "${openstack_networking_network_v2.network.id}"
-    port = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
-    # access_network = true
-  }
-}
-
-resource "openstack_networking_port_v2" "network_port" {
-  count          = "${var.instance_count}"
-  network_id     = "${openstack_networking_network_v2.network.id}"
-  admin_state_up = "true"
-  fixed_ip       = {
-    subnet_id    = "${openstack_networking_subnet_v2.subnet.id}"
+    uuid           = "${openstack_networking_network_v2.network.id}"
   }
 }
 
@@ -43,9 +31,3 @@ resource "openstack_compute_volume_attach_v2" "volume_attach" {
   instance_id = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
   volume_id   = "${element(openstack_blockstorage_volume_v2.volume.*.id, count.index)}"
 }
-
-#resource "openstack_compute_floatingip_associate_v2" "fip_1" {
-  #count       = "${var.instance_count}"
-  #floating_ip = "${element(openstack_compute_floatingip_v2.fip.*.address, count.index)}"
-  #instance_id = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
-#}
