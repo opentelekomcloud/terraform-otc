@@ -16,6 +16,6 @@ resource "openstack_compute_instance_v2" "webserver" {
 
 resource "openstack_compute_floatingip_associate_v2" "fip_1" {
   count       = "${var.instance_count}"
-  floating_ip = "${element(openstack_compute_floatingip_v2.fip.*.address, count.index)}"
+  floating_ip = "${element(openstack_networking_floatingip_v2.fip.*.address, count.index)}"
   instance_id = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
 }

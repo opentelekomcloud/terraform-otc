@@ -11,5 +11,5 @@ resource "openstack_dns_recordset_v2" "recordset" {
   name    = "${var.dnsname}.${var.dnszone}."
   ttl     = 3000
   type    = "A"
-  records = ["${openstack_compute_floatingip_v2.fip.*.address}"]
+  records = ["${openstack_networking_floatingip_v2.fip.*.address}"]
 }
