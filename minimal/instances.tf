@@ -8,6 +8,7 @@ resource "openstack_compute_instance_v2" "webserver" {
     port = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
     access_network = true
   }
+  depends_on       = ["openstack_networking_router_interface_v2.interface"]
 }
 
 resource "openstack_networking_port_v2" "network_port" {
