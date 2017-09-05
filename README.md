@@ -67,12 +67,12 @@ Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) doc
 
 ### Loadbalancing
 
-There is currently a problem with Terraform and the creation of a health monitor, resulting in a crash of Terraform. For the progress on this bug, the [this Github issue]()
+There is currently a problem with Terraform and the creation of a health monitor, resulting in a crash of Terraform. For the progress on this bug, the [this Github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/98)
 It is also not possible to set a custom connection limit for the LBaasV2 listener. This parameter has to be either omitted or set to -1 to work with OTC.
 
 ### Floating IP Association
 
-Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is due to how the external network is setup in OTC. There is a [corresponding github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/88) where this is currently being discussed. As a workaround, it is possible to create a port via the `openstack_networking_port` resource, and attach the instance and the floating IP to that port. This will work without issues.
+Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is due to how the external network is setup in OTC. There is a [corresponding github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/88) where this is currently being discussed. As a workaround, it is possible to create a port via the `openstack_networking_port_v2` resource, and attach the instance and the floating IP to that port. This will work without issues.
 
 ### Network Datasource
 
