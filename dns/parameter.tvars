@@ -1,0 +1,5 @@
+username = ""
+password = ""
+domain_name = ""
+disk_size_gb = "10"
+dnszone = "otc-terraform-test-dns.com"
