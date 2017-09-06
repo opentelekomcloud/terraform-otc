@@ -22,10 +22,6 @@ variable "external_network_id" {
   default = "0a2228f2-7f8a-45f1-8e09-9039e1d09975"
 }
 
-variable "ssh_user" {
-  default = "linux"
-}
-
 ### Project Settings
 variable "project" {
   default = "terraform"
@@ -37,10 +33,6 @@ variable "subnet_cidr" {
 
 variable "ssh_pub_key" {
   default = "~/.ssh/id_rsa.pub"
-}
-
-variable "ssh_priv_key" {
-  default = "~/.ssh/id_rsa"
 }
 
 ### DNS Settings
