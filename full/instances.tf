@@ -9,18 +9,6 @@ resource "openstack_compute_instance_v2" "webserver" {
     "${openstack_compute_secgroup_v2.secgrp_web.name}"
   ]
 
-#  connection {
-#    type        = "ssh"
-#    user        = "${var.ssh_user}"
-#    # private_key = "${file("${var.ssh_priv_key}")}" works only for unencrypted private keys
-#    agent       = "true"
-#  }
-#
-#  provisioner "file" {
-#    source      = "${template_dir.config.destination_dir}"
-#    destination = "/etc"
-#  }
-
   network {
     uuid           = "${openstack_networking_network_v2.network.id}"
   }
