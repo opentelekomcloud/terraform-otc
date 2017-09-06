@@ -1,6 +1,6 @@
 # Minimal Terraform OTC Example
 
-This scrip will create the following resources:
+This script will create the following resources:
 * Floating IPs
 * Neutron Ports
 * Instances
