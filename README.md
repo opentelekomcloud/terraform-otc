@@ -34,6 +34,7 @@ An example on how to use the object storage that is included in OTC by utilizing
 This based on the minimal example, showing the usage of Terraforms provisioner to execute commands and deploy files on the created instances.
 
 An example on how to use the object storage that is included in OTC by utilizing the AWS provider.
+
 **full**
 
 A complete example, showing the full power of terraform. Components can be enabled and disabled via configuration file. This can be used as a template for production grade Terraform scripts.
