@@ -36,9 +36,7 @@ variable "ssh_pub_key" {
 }
 
 ### DNS Settings
-variable "dnszone" {
-  default = ""
-}
+variable "dnszone" {}
 
 variable "dnsname" {
   default = "webserver"
@@ -58,5 +56,5 @@ variable "image_name" {
 }
 
 variable "disk_size_gb" {
-  default = "0"
+  default = "10"
 }
