@@ -21,7 +21,7 @@ This script will create the following resources:
 * **username** (your OTC username)
 * **password** (your OTC password)
 * **domain\_name** (your OTC domain name)
-* **dnszone** (name of the dns zone to create)_
+* **dnszone** (name of the dns zone to create)
 
 ### Optional
 * **project** (this will prefix all your resources, _default=terraform_)
