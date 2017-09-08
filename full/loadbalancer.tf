@@ -27,10 +27,12 @@ resource "openstack_lb_member_v2" "member" {
   protocol_port = 80
 }
 
-#resource "openstack_lb_monitor_v2" "monitor" {
-#  pool_id     = "${openstack_lb_pool_v2.pool.id}"
-#  type        = "HTTP"
-#  delay       = 20
-#  timeout     = 10
-#  max_retries = 5
-#}
+resource "openstack_lb_monitor_v2" "monitor" {
+  pool_id        = "${openstack_lb_pool_v2.pool.id}"
+  type           = "HTTP"
+  url_path       = "/"
+  expected_codes = "200"
+  delay          = 20
+  timeout        = 10
+  max_retries    = 5
+}

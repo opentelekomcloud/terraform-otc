@@ -2,6 +2,10 @@
 
 ## Compatibility List
 
+Testet with:
+* Terraform: **v0.10.2**
+* OpenStack Provider: **0.2.2**
+
 | Terraform Resource | Status      |
 | ------------------ | ----------- |
 | Data Sources       | Partial     |
@@ -10,7 +14,7 @@
 | DNS                | Working     |
 | Images             | Working     |
 | Networking         | Working     |
-| Load Balancer      | Partial     |
+| Load Balancer      | Working     |
 | Firewall           | Not working |
 
 ## Description
@@ -70,11 +74,6 @@ Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) doc
 ![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
 
 ## Known Issues
-
-### Loadbalancing
-
-There is currently a problem with Terraform and the creation of a health monitor, resulting in a crash of Terraform. For the progress on this bug, the [this Github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/98)
-It is also not possible to set a custom connection limit for the LBaasV2 listener. This parameter has to be either omitted or set to -1 to work with OTC.
 
 ### Floating IP Association
 
