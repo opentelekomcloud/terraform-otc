@@ -43,6 +43,10 @@ An example on how to use the object storage that is included in OTC by utilizing
 
 A complete example, showing the full power of terraform. Components can be enabled and disabled via configuration file. This can be used as a template for production grade Terraform scripts.
 
+**modules**
+
+One strong argument for Terraform is the option to create reusable modules. This example shows how easy it is to creatt a full infrastructure deployment on the OTC by utilizing the terraform modules provided in the [terraform-otc-module](https://github.com/OpenTelekomCloud/terraform-otc-modules) repository.
+
 ## Quick Start
 
 1. Install [Terraform](https://www.terraform.io)
