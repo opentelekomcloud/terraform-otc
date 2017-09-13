@@ -2,6 +2,7 @@ resource "openstack_lb_loadbalancer_v2" "loadbalancer" {
   name           = "${var.project}-loadbalancer"
   vip_subnet_id  = "${openstack_networking_subnet_v2.subnet.id}"
   admin_state_up = "true"
+  depends_on     = ["openstack_networking_router_interface_v2.interface"]
 }
 
 resource "openstack_lb_listener_v2" "listener" {
