@@ -3,12 +3,12 @@
 ## Compatibility List
 
 Testet with:
-* Terraform: **v0.10.2**
+* Terraform: **v0.10.5**
 * OpenStack Provider: **0.2.2**
 
 | Terraform Resource | Status      |
 | ------------------ | ----------- |
-| Data Sources       | Partial     |
+| Data Sources       | Working     |
 | Block Storage      | Working     |
 | Compute            | Working     |
 | DNS                | Working     |
@@ -82,7 +82,3 @@ Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) doc
 ### Floating IP Association
 
 Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is due to how the external network is setup in OTC. There is a [corresponding github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/88) where this is currently being discussed. As a workaround, it is possible to create a port via the `openstack_networking_port_v2` resource, and attach the instance and the floating IP to that port. This will work without issues.
-
-### Network Datasource
-
-The datasource [openstack_networking_network_v2](https://www.terraform.io/docs/providers/openstack/d/networking_network_v2.html) is currently not working. There is a problem with the filtering of networks in the Neutron API that is currently worked on. As soon as this is resolved, this document will be updated.
