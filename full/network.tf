@@ -1,3 +1,7 @@
+data "openstack_networking_network_v2" "extnet" {
+  name = "${var.external_network}"
+}
+
 resource "openstack_networking_network_v2" "network" {
   name           = "${var.project}-network"
   admin_state_up = "true"
