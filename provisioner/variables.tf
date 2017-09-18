@@ -19,7 +19,7 @@ variable "external_network" {
 }
 
 variable "ssh_user" {
-  default = "linux"
+  default = "ubuntu"
 }
 
 ### Project Settings
@@ -49,5 +49,5 @@ variable "flavor_name" {
 }
 
 variable "image_name" {
-  default = "Standard_CentOS_7_latest"
+  default = "Community_Ubuntu_16.04_TSI_latest"
 }

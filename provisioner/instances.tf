@@ -25,7 +25,13 @@ resource "null_resource" "provision" {
 
   provisioner "file" {
     source      = "${template_dir.config.destination_dir}"
-    destination = "/etc"
+    destination = "/tmp/etc"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo cp -a /tmp/etc/* /etc/.",
+    ]
   }
 }
 
