@@ -12,7 +12,5 @@ resource "template_dir" "config" {
 
   vars {
     project = "${var.project}"
-    domain  = "${var.domain_name}"
-    dnsname = "${var.dnsname}.${var.dnszone}"
   }
 }
