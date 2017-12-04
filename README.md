@@ -1,8 +1,10 @@
 # Terraform examples for Open Telekom Cloud
 
+Terraform is a provider agnostic framework to create and maintain infrastructure on public clouds. To interface with actual providers, Terraform comes with a modular architecture. To access the Open Telekom Cloud (OTC) the OpenStack provider can be used as the OTC implements a lot of OpenStack APIs. This project includes example projects for different use cases users can adopt as a starting point for their own installations.
+
 ## Compatibility List
 
-Testet with:
+The examples in this repository are testet with:
 * Terraform: **v0.10.5**
 * OpenStack Provider: **0.2.2**
 
@@ -19,7 +21,7 @@ Testet with:
 
 ## Description
 
-There are different examples of terraform scripts, each with a different purpose:
+There are different examples of Terraform scripts, each with a different purpose:
 
 **minimal** 
 
@@ -35,9 +37,9 @@ An example on how to use the object storage that is included in OTC by utilizing
 
 **provisioner**
 
-This based on the minimal example, showing the usage of Terraforms provisioner to execute commands and deploy files on the created instances.
+This based on the minimal example, showing the usage of Terraform's provisioner to execute commands and deploy files on the created instances.
 
-An example on how to use the object storage that is included in OTC by utilizing the AWS provider.
+An example on how to use the object storage included in OTC by utilizing the AWS provider.
 
 **full**
 
@@ -45,31 +47,31 @@ A complete example, showing the full power of terraform. Components can be enabl
 
 **modules**
 
-One strong argument for Terraform is the option to create reusable modules. This example shows how easy it is to create a full infrastructure deployment on the OTC by utilizing the terraform modules provided in the [terraform-otc-module](https://github.com/OpenTelekomCloud/terraform-otc-modules) repository.
+One strong argument for Terraform is the option to create reusable modules. This example shows how easy it is to create a full infrastructure deployment on the OTC by utilizing the Terraform modules provided in the [terraform-otc-module](https://github.com/OpenTelekomCloud/terraform-otc-modules) repository.
 
 ## Quick Start
 
-1. Install [Terraform](https://www.terraform.io)
-2. Clone this repository via `git clone https://github.com/OpenTelekomCloud/terraform-otc.git`
-3. Switch to terraform directory `cd terraform-otc/minimal`
-4. Initialize Terraform provider via `terraform init`
-5. Insert your login information into `parameter.tvars`
-6. Check if everything looks good with `terraform plan -var-file=parameter.tvars`
-7. Apply the changes via `terraform apply -var-file=parameter.tvars`
+1. Install [Terraform](https://www.terraform.io/intro/getting-started/install.html).
+2. Clone this repository via `git clone https://github.com/OpenTelekomCloud/terraform-otc.git`.
+3. Switch to terraform directory `cd terraform-otc/minimal`.
+4. Initialize Terraform provider via `terraform init`.
+5. Insert your login information into `parameter.tvars` (see next section).
+6. Check if everything looks fine with `terraform plan -var-file=parameter.tvars`.
+7. Apply the changes via `terraform apply -var-file=parameter.tvars`.
 
 ## Customization
 
-All variables that can be changed are documented in the file `variables.tf`. There are also some reasonable default values for most of the variables set in this file. Every variable von be overwritten by passing command line arguments to the Terraform invocation, or simply by passing a parameter file via the `-var-file` command line parameter. All the examples provide an file called `parameters.tvars` where you find the parameters that you need to set for the example to work (for example your login information). You cann add more parameters for any variable existing in the `variables.tf` file. For more information on this topic see [Terraform variables documentation](http://www.terraform.io/intro/getting-started/variables.html).
+All variables that can be changed are documented in `variables.tf`. There are reasonable default values for most of the variables in this file. Every variable may be overwritten by passing command line arguments to the Terraform invocation, or simply by passing a parameter file via the `-var-file` command line parameter. All the examples provide a file `parameters.tvars` containing all necessary parameters for the example to work (for example your login information). You can add more parameters for any variable existing in the `variables.tf` file. For more information see [Terraform variables documentation](http://www.terraform.io/intro/getting-started/variables.html).
 
 ## Authentication
 
-To get the examples to work with you OTC Account, you need three informations:
+To get the examples to work with you OTC account, you need three information bits:
 
-* username (User Name from "My Credential")
+* username (user name from `My Credential`)
 * password (your login password)
-* domain\_name (Domain Name from "My Credential")
+* domain\_name (Domain Name from `My Credential`)
 
-Please refer the following [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation article to find authentication details: 
+Refer to the [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation article to find authentication details: 
 
 [How Do I Modify My Credential Information?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606214.html)
 
