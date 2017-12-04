@@ -45,7 +45,7 @@ A complete example, showing the full power of terraform. Components can be enabl
 
 **modules**
 
-One strong argument for Terraform is the option to create reusable modules. This example shows how easy it is to creatt a full infrastructure deployment on the OTC by utilizing the terraform modules provided in the [terraform-otc-module](https://github.com/OpenTelekomCloud/terraform-otc-modules) repository.
+One strong argument for Terraform is the option to create reusable modules. This example shows how easy it is to create a full infrastructure deployment on the OTC by utilizing the terraform modules provided in the [terraform-otc-module](https://github.com/OpenTelekomCloud/terraform-otc-modules) repository.
 
 ## Quick Start
 
