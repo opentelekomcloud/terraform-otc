@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "mybucket" {
-  bucket = "terra-test"
+  bucket = "${var.bucket_name}"
   acl    = "public-read"
   versioning {
     enabled = true
