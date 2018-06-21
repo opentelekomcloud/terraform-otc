@@ -8,8 +8,14 @@ resource "openstack_compute_instance_v2" "webserver" {
   depends_on     = ["openstack_networking_router_interface_v2.interface"]
 
   network {
-    port = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
+    uuid = "${openstack_networking_network_v2.network.id}"
   }
+}
+
+resource "openstack_compute_floatingip_associate_v2" "webserver_fip" {
+  floating_ip           = "${openstack_networking_floatingip_v2.fip.address}"
+  instance_id           = "${openstack_compute_instance_v2.webserver.id}"
+  wait_until_associated = "true"
 }
 
 resource "null_resource" "provision" {
@@ -32,18 +38,5 @@ resource "null_resource" "provision" {
     inline = [
       "sudo cp -a /tmp/etc/* /etc/.",
     ]
-  }
-}
-
-
-resource "openstack_networking_port_v2" "network_port" {
-  count              = "${var.instance_count}"
-  network_id         = "${openstack_networking_network_v2.network.id}"
-  security_group_ids = [
-    "${openstack_compute_secgroup_v2.secgrp_web.id}"
-  ]
-  admin_state_up     = "true"
-  fixed_ip           = {
-    subnet_id        = "${openstack_networking_subnet_v2.subnet.id}"
   }
 }

@@ -10,7 +10,7 @@ resource "openstack_compute_instance_v2" "webserver" {
   ]
 
   network {
-    uuid           = "${openstack_networking_network_v2.network.id}"
+    uuid          = "${openstack_networking_network_v2.network.id}"
   }
 }
 
