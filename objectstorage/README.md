@@ -18,6 +18,7 @@ For more information on how to create and manage your access keys see:
 
 * **access\_key** (Your Access Key)
 * **secret\_key** (Your Secret Key)
+* **bucket\_name** (The (globally unique) bucket name)
 
 ### Optional
 * **obs\_filename** (the file to upload to the object store, _default=sample.txt_)

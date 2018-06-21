@@ -2,7 +2,6 @@
 
 This script will create the following resources:
 * Floating IPs
-* Neutron Ports
 * Instances
 * Keypair
 * Network

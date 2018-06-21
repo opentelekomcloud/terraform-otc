@@ -5,7 +5,6 @@ This script will create the following resources:
 * DNS Record Set
 * Volumes
 * Floating IPs
-* Neutron Ports
 * Instances
 * Keypair
 * Network
