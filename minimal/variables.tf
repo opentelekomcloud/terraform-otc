@@ -37,7 +37,7 @@ variable "instance_count" {
 }
 
 variable "flavor_name" {
-  default = "s1.medium"
+  default = "s2.medium.4"
 }
 
 variable "image_name" {
