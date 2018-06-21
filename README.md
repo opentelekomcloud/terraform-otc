@@ -5,8 +5,8 @@ Terraform is a provider agnostic framework to create and maintain infrastructure
 ## Compatibility List
 
 The examples in this repository are testet with:
-* Terraform: **v0.10.5**
-* OpenStack Provider: **0.2.2**
+* Terraform: **v0.11.7**
+* OpenStack Provider: **1.6.0**
 
 | Terraform Resource | Status      |
 | ------------------ | ----------- |
@@ -18,6 +18,10 @@ The examples in this repository are testet with:
 | Networking         | Working     |
 | Load Balancer      | Working     |
 | Firewall           | Not working |
+
+## Update
+
+The floatingip association problem is fixed in the lastest version of Terraforms OpenStack provier (1.6.0). I've used this opprotunity to update all terraform examples to work with the newest version of Terraform (v0.11.7).
 
 ## Description
 
@@ -78,9 +82,3 @@ Refer to the [OTC Helpcenter](https://docs.otc.t-systems.com/) documentation art
 [How Do I Manage Access Keys?](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_topic_0046606340.html)
 
 ![My Credential](https://docs.otc.t-systems.com/en-us/usermanual/ac/en-us_image_0049334540.jpg )
-
-## Known Issues
-
-### Floating IP Association
-
-Floating IP associaten works, but Terraform is unable to determine if the floating IP is still attached in any subsequent runs. This is due to how the external network is setup in OTC. There is a [corresponding github issue](https://github.com/terraform-providers/terraform-provider-openstack/issues/88) where this is currently being discussed. As a workaround, it is possible to create a port via the `openstack_networking_port_v2` resource, and attach the instance and the floating IP to that port. This will work without issues.
