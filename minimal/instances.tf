@@ -4,6 +4,10 @@ resource "openstack_compute_instance_v2" "webserver" {
   image_name      = "${var.image_name}"
   flavor_name     = "${var.flavor_name}"
   key_pair        = "${openstack_compute_keypair_v2.keypair.name}"
+  security_groups = [
+    "${openstack_compute_secgroup_v2.secgrp_web.name}"
+  ]
+
   network {
     uuid = "${openstack_networking_network_v2.network.id}"
   }
