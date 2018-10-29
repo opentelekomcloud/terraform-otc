@@ -6,6 +6,9 @@ resource "openstack_compute_instance_v2" "webserver" {
   key_pair       = "${openstack_compute_keypair_v2.keypair.name}"
   user_data      = "${data.template_file.webserver.rendered}"
   depends_on     = ["openstack_networking_router_interface_v2.interface"]
+  security_groups = [
+    "${openstack_compute_secgroup_v2.secgrp_web.name}"
+  ]
 
   network {
     uuid = "${openstack_networking_network_v2.network.id}"
