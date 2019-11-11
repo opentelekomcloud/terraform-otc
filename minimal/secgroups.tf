@@ -1,4 +1,4 @@
-resource "openstack_compute_secgroup_v2" "secgrp_web" {
+resource "opentelekomcloud_compute_secgroup_v2" "secgrp_web" {
   name        = "${var.project}-secgrp-web"
   description = "Webserver Security Group"
 
