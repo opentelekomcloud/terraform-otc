@@ -1,35 +1,35 @@
-resource "openstack_lb_loadbalancer_v2" "loadbalancer" {
+resource "opentelekomcloud_lb_loadbalancer_v2" "loadbalancer" {
   name           = "${var.project}-loadbalancer"
-  vip_subnet_id  = "${openstack_networking_subnet_v2.subnet.id}"
+  vip_subnet_id  = "${opentelekomcloud_networking_subnet_v2.subnet.id}"
   admin_state_up = "true"
-  depends_on     = ["openstack_networking_router_interface_v2.interface"]
+  depends_on     = ["opentelekomcloud_networking_router_interface_v2.interface"]
 }
 
-resource "openstack_lb_listener_v2" "listener" {
+resource "opentelekomcloud_lb_listener_v2" "listener" {
   name             = "${var.project}-listener"
   protocol         = "HTTP"
   protocol_port    = 80
-  loadbalancer_id  = "${openstack_lb_loadbalancer_v2.loadbalancer.id}"
+  loadbalancer_id  = "${opentelekomcloud_lb_loadbalancer_v2.loadbalancer.id}"
   admin_state_up   = "true"
   connection_limit = "-1"
 }
 
-resource "openstack_lb_pool_v2" "pool" {
+resource "opentelekomcloud_lb_pool_v2" "pool" {
   protocol    = "HTTP"
   lb_method   = "ROUND_ROBIN"
-  listener_id = "${openstack_lb_listener_v2.listener.id}"
+  listener_id = "${opentelekomcloud_lb_listener_v2.listener.id}"
 }
 
-resource "openstack_lb_member_v2" "member" {
+resource "opentelekomcloud_lb_member_v2" "member" {
   count         = "${var.instance_count}"
-  address       = "${element(openstack_compute_instance_v2.webserver.*.access_ip_v4, count.index)}"
-  pool_id       = "${openstack_lb_pool_v2.pool.id}"
-  subnet_id     = "${openstack_networking_subnet_v2.subnet.id}"
+  address       = "${element(opentelekomcloud_compute_instance_v2.webserver.*.access_ip_v4, count.index)}"
+  pool_id       = "${opentelekomcloud_lb_pool_v2.pool.id}"
+  subnet_id     = "${opentelekomcloud_networking_subnet_v2.subnet.id}"
   protocol_port = 80
 }
 
-resource "openstack_lb_monitor_v2" "monitor" {
-  pool_id        = "${openstack_lb_pool_v2.pool.id}"
+resource "opentelekomcloud_lb_monitor_v2" "monitor" {
+  pool_id        = "${opentelekomcloud_lb_pool_v2.pool.id}"
   type           = "HTTP"
   url_path       = "/"
   expected_codes = "200"

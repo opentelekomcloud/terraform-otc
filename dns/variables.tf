@@ -1,4 +1,4 @@
-### OpenStack Credentials
+### opentelekomcloud Credentials
 variable "username" {}
 
 variable "password" {}
